@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="contact" class="col-3 text-left pl-4">
+        <div class="mb-5">
+            <h5>Adresse</h5>
+            <p class="m-0">118 chemin charbonnier</p>
+            <p class="m-0">38780 ESTRABLIN</p>
+            <p class="m-0">France</p>
+        </div>
+        <div class="mb-5 mt-5">
+            <h5>Téléphone</h5>
+            <p class="m-0">06 44 07 93 72</p>
+        </div>
+        <div class="mb-4">
+            <h5>Mail</h5>
+            <p class="m-0">j.farin38@gmail.com</p>
+        </div>
+    </div>
+    <div class="col-9 d-flex justify-content-center">
+        <div class="w-100 mr-5">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-primary">{% trans %}Send{% endtrans %}</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
