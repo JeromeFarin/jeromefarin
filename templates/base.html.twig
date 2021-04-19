@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Jérôme Farin{% endblock %}</title>
         {% block stylesheets %}
             <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -10,26 +11,25 @@
             <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         {% endblock %}
     </head>
-    <body>
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('error') %}
-            <div class="alert alert-error">
-                {{ message }}
-            </div>
-        {% endfor %}
-        <div class="d-flex h-100">
-            <div id="header" class="col-2">
-                {% include "header.html.twig" %}
-            </div>
-            <div id="back" class="col-10 p-0">
-                <div id="body" class="d-flex justify-content-center align-items-center">
-                    {% block body %}{% endblock %}
+    <body class="col-12 d-md-flex p-0">
+        <div id="left" class="d-none d-md-flex flex-column justify-content-between col-md-4 col-xl-2 p-0">
+            <div id="block-left" class="col-md-4 col-xl-2 p-0 h-100 d-flex flex-column justify-content-between">
+                <div id="header">
+                    {% include "header.html.twig" %}
+                </div>
+                <div id="footer">
+                    {% include "footer.html.twig" %}
                 </div>
             </div>
+        </div>
+        <div id="header" class="d-md-none">
+            {% include "header.html.twig" %}
+        </div>
+        <div id="body" class="col-md-8 col-xl-10 p-0">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="footer" class="d-md-none">
+            {% include "footer.html.twig" %}
         </div>
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
