@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: ./.docker
+    ports:
+      - '9000:9000'
+    volumes:
+      - .:/var/www/jeromefarin
+      - ./.docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - '80:80'
+    volumes:
+      - .:/var/www/jeromefarin
+      - ./.docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - php
