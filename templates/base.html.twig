@@ -11,32 +11,106 @@
             <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         {% endblock %}
     </head>
-    <body class="col-12 d-md-flex p-0">
-        <div id="left" class="d-none d-md-flex flex-column justify-content-between col-md-4 col-xl-2 p-0">
-            <div id="block-left" class="col-md-4 col-xl-2 p-0 h-100 d-flex flex-column justify-content-between">
-                <div id="header">
-                    {% include "header.html.twig" %}
+    <body>
+        <div id="carousel" class="carousel slide col-12 d-none d-md-flex p-0" data-ride="carousel" data-interval="false">
+            <div id="left" class="d-none d-md-flex flex-column justify-content-between col-md-4 col-xl-2 p-0">
+                <div id="block-left" class="col-md-4 col-xl-2 p-0 h-100 d-flex flex-column justify-content-between">
+                    <div id="header">
+                        {% include "header.html.twig" %}
+                    </div>
+                    <ul class="carousel-indicators flex-column position-relative">
+                        <li data-target="#carousel" data-slide-to="0" class="carousel-nav-item active">Professionnel</li>
+                        <li data-target="#carousel" data-slide-to="1" class="carousel-nav-item">Personnel</li>
+                    </ul>
+                    <div id="footer">
+                        {% include "footer.html.twig" %}
+                    </div>
                 </div>
-                <div id="footer">
-                    {% include "footer.html.twig" %}
+            </div>
+            <div id="body" class="col-md-8 col-xl-10 pt-3 pb-3 pt-md-0 pb-md-0">
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100 active">
+                        <div class="h-100 d-xl-flex justify-content-around align-items-center">
+                            <div>
+                                {% include "blocks/skills.html.twig" %}
+                            </div>
+                            <div>
+                                {% include "blocks/formations.html.twig" %}
+                            </div>
+                            <div>
+                                {% include "blocks/experiences.html.twig" %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100">
+                        <div class="h-100 d-xl-flex justify-content-around align-items-center">
+                            <div>
+                                {% include "blocks/qualities.html.twig" %}
+                            </div>
+                            <div>
+                                {% include "blocks/defaults.html.twig" %}
+                            </div>
+                            <div>
+                                {% include "blocks/center-of-interest.html.twig" %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="header" class="d-md-none">
-            {% include "header.html.twig" %}
-        </div>
-        <div id="body" class="col-md-8 col-xl-10 p-0">
-            {% block body %}{% endblock %}
-        </div>
-        <div id="footer" class="d-md-none">
-            {% include "footer.html.twig" %}
+        {# Responsive #}
+        <div id="carouselResponsive" class="carousel slide col-12 d-flex d-md-none flex-column p-0" data-ride="carousel" data-interval="false">
+            <div id="header">
+                {% include "header.html.twig" %}
+
+                <ul class="carousel-indicators position-relative">
+                    <li data-target="#carouselResponsive" data-slide-to="0" class="carousel-nav-item active">Pro.</li>
+                    <li data-target="#carouselResponsive" data-slide-to="1" class="carousel-nav-item">Perso.</li>
+                </ul>
+            </div>
+            <div id="body" class="col-md-8 col-xl-10 pt-3 pb-3 pt-md-0 pb-md-0">
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100 active">
+                        <div class="h-100 d-xl-flex justify-content-around align-items-center">
+                            <div>
+                                {% include "blocks/skills.html.twig" %}
+                            </div>
+                            <hr>
+                            <div>
+                                {% include "blocks/formations.html.twig" %}
+                            </div>
+                            <hr>
+                            <div>
+                                {% include "blocks/experiences.html.twig" %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100">
+                        <div class="h-100 d-xl-flex justify-content-around align-items-center">
+                            <div>
+                                {% include "blocks/qualities.html.twig" %}
+                            </div>
+                            <hr>
+                            <div>
+                                {% include "blocks/defaults.html.twig" %}
+                            </div>
+                            <hr>
+                            <div>
+                                {% include "blocks/center-of-interest.html.twig" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                {% include "footer.html.twig" %}
+            </div>
         </div>
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/4ff6956e6d.js" crossorigin="anonymous"></script>
-            <script src="/js/hover.js"></script>
         {% endblock %}
     </body>
 </html>

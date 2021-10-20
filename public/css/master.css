@@ -27,7 +27,7 @@ body {
 
 /* Body */
 #body {
-    background-color: #5a5a5a7c;
+    background-color: #5a5a5aa8;
     padding: 10px;
     box-shadow: inset 0 0 20px 0 #000;
     height: 100vh;
@@ -44,34 +44,39 @@ body {
 #body h3 {
     font-weight: bold;
 }
-#body #download {
-    color: #fff;
-    font-size: 1em;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+
+#download {
+    font-size: 0.6em;
 }
-#body .details {
-    position: relative;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-#body .details p {
-    margin: 0;
-}
-#body .details .details-popup {
-    background-color: #5a5a5a;
-    border-radius: 20px;
-    padding: 10px;
-    position: absolute;
-    width: 100%;
-    display: none;
-    z-index: 10;
-}
-#body .details .details-popup p {
-    margin: 0;
+#footer footer a#download i {
+    font-size: 0.9em;
 }
 
+.popup {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+}
+  
+.popup[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: #5a5a5a;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 0px #000;
+    width: 200px;
+    font-size: 0.6em;
+    left: calc((100% - 200px) / 2);
+    top: -25px;
+}
+
+.popup i {
+    font-size: 0.8em;
+}
 
 /* Footer */
 #footer {
@@ -96,4 +101,20 @@ body {
     body {
         background-position: 0;
     }
+}
+
+@media only screen and (max-width: 992px) {
+    #body {
+        height: 100%;
+    }
+}
+
+li.carousel-nav-item {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    text-indent: 0;
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    padding: 5px;
 }
