@@ -9,7 +9,7 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.invest.rule=Host(`jeromefarin.fr.com`)"
+      - "traefik.http.routers.invest.rule=Host(`jeromefarin.fr`)"
       - "traefik.http.routers.invest.entrypoints=websecure"
     volumes:
       - ./vhosts:/etc/apache2/sites-enabled
