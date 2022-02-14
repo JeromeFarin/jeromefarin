@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: web_jeromefarin_prod
+    build:
+      context: ../../
+      dockerfile: .docker/prod/Dockerfile
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.invest.rule=Host(`jeromefarin.fr.com`)"
+      - "traefik.http.routers.invest.entrypoints=websecure"
+    volumes:
+      - ./vhosts:/etc/apache2/sites-enabled
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

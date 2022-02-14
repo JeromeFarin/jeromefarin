@@ -1,0 +1,8 @@
+.git/
+.docker/
+.dockerignore
+.gitignore
+docker-compose.yml
+phpunit.xml.dist
+tests/
+vendor/
