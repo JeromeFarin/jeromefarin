@@ -12,6 +12,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer self-update --1
 
+RUN a2enmod rewrite && service apache2 restart
+
 COPY . /var/www
 
 WORKDIR /var/www
