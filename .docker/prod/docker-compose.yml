@@ -6,11 +6,12 @@ services:
     build:
       context: ../../
       dockerfile: .docker/prod/Dockerfile
+    image: jeromefarin:latest
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.invest.rule=Host(`jeromefarin.fr`)"
-      - "traefik.http.routers.invest.entrypoints=websecure"
+      - "traefik.http.routers.jeromefarin.rule=Host(`jeromefarin.fr`)"
+      - "traefik.http.routers.jeromefarin.entrypoints=websecure"
     volumes:
       - ./vhosts:/etc/apache2/sites-enabled
     networks:
